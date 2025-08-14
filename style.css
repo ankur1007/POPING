@@ -1,4 +1,5 @@
 #page {
+  margin-top: 0;
   padding: 0;
   display: grid;
   width: 100%;
@@ -6,7 +7,7 @@
   grid-template-areas:
     "head head"
     "main nav"
-    "foot  foot";
+    "foot  nav";
   grid-template-rows: 60px 1fr 80px;
   grid-template-columns: 70% 30%;
 
@@ -16,14 +17,60 @@
 
 #page > header {
   grid-area: head;
-
   background-color: #8395f2;
 }
 
 #page > nav {
   grid-area: nav;
-  background-color: #f5927e;
+  background-color: #e2bdb5;
 }
+
+.profile {
+  grid-area: profile;
+  background-color: rgb(100, 148, 190);
+}
+.timer {
+  grid-area: timer;
+  background-color: azure;
+}
+.navbutton {
+  grid-area: navbutton;
+  background-color: antiquewhite;
+  
+  margin: 0.8rem;
+  border: 1px solid black;
+}
+.finalbutton {
+  grid-area: finalbutton;
+  background-color: rgb(164, 164, 164);
+}
+
+.navigation {
+  display: grid;
+  grid-template-areas:
+    "profile timer"
+    "navbutton navbutton"
+    "finalbutton  finalbutton";
+  grid-template-rows: 70px 1fr 90px;
+  grid-template-columns: 60% 40%;
+}
+
+/* nav.navigation > profile {
+  grid-area: profile;
+  background-color: rgb(21, 21, 39);
+}
+nav.navigation > timer {
+  grid-area: timer;
+  background-color: rgb(18, 146, 46);
+}
+nav.navigation > navbutton {
+  grid-area: navbutton;
+  background-color: rgb(180, 86, 23);
+}
+nav.navigation > finalbutton {
+  grid-area: finalbutton;
+  background-color: rgb(152, 26, 83);
+} */
 
 #page > main {
   grid-area: main;
@@ -32,12 +79,12 @@
 
 #page > footer {
   grid-area: foot;
-  background-color: #8bbc93;
+  background-color: #cbcccb;
 }
 .section {
   display: block;
   padding: 0.6rem;
-  border: 1px solid black;
+  border: 1px solid rgb(241, 238, 238);
   font-size: small;
 }
 .header {
@@ -48,8 +95,9 @@
   margin-top: 5px;
   padding: 15px;
 }
-.btn1 {
+.btn1.btn2.btn3.btn4 {
   border-radius: 50%;
+  cursor: pointer;
 }
 #buttons {
   padding: 5px;
@@ -66,4 +114,7 @@
   box-shadow: 0px 0px 1px 1px black;
   transform: scale(0.9);
   transform: translateY(4px);
+}
+.questionplace {
+  padding: 10px;
 }
