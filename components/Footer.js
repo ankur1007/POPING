@@ -1,34 +1,56 @@
 import { questions } from "./Data.js";
-import { page } from "../Main.js";
-export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
-  let currentIndex = 0;
-  let Index = 0;
+import { mainOptions } from "../Main.js";
+let emptyArray = [];
+let currentIndex = 0;
+let Index = 0;
 
+export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
+  
+  //save and next
+  
   newpage.addEventListener("click", () => {
+    
     currentIndex = currentIndex + 1;
     if (currentIndex >= questions.length) {
       currentIndex = 0;
     }
-    page(currentIndex);
+    
+    
+    const selected = document.querySelector("input[type=radio]:checked");
 
-    console.log("clicked");
+    tookoption.forEach(
+      (button, id) => (button.value = questions[currentIndex].option[id])
+    );
+    if (selected) {
+      emptyArray.splice(0, 0, selected.value);
+    }
 
-    tookoption.forEach((btnOption) => {
+    
+    console.log(emptyArray);
+    
+    tookoption.forEach((btnOption, option) => {
       btnOption.checked = false;
       btnOption.disabled = false;
     });
+
+    // tookoption.forEach((save) => {
+    //   const values = save.value;
+    //   fetching.push(values);
+    // });
+    // let fetch = selected.textContent;
   });
 
+  //previous page
   previouspage.addEventListener("click", () => {
     currentIndex--;
     if (currentIndex < 0) {
       currentIndex = questions.length - 1;
     }
-    page(currentIndex);
+    mainOptions(currentIndex);
   });
 
+  //clear button
   clearbtn.addEventListener("click", () => {
-    debugger;
     tookoption.forEach((btn) => {
       btn.disabled = false;
       btn.checked = false;

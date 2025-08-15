@@ -1,7 +1,6 @@
 import { questions } from "./components/Data.js";
 import { allevents } from "./components/Footer.js";
-// import { question } from "./components/MainQuestion.js";
-// import { totalbutton } from "./components/navigation.js";
+import { totalbutton } from "./components/Navigation.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -21,7 +20,7 @@ tookoption.forEach((button) =>
 );
 
 //options function-a,b,c,d
-export function page(Index) {
+export function mainOptions(Index) {
   const placeholder = document.getElementById("placeholder");
   const tookPlaceholder = document.querySelectorAll(".optionhold");
 
@@ -33,4 +32,5 @@ export function page(Index) {
 }
 
 allevents({ newpage, previouspage, clearbtn, tookoption });
-page(0);
+mainOptions(0);
+totalbutton();
