@@ -1,21 +1,22 @@
 import { questions } from "./Data.js";
-export function totalbutton() {
+export function navigationbutton() {
   const navbuttons_display = document.getElementById("navigationbutton");
-
-  questions.map((index, id) => {
-    const btn = document.createElement("button");
-    const selected = document.querySelector("input[type=radio]:checked");
-
+  const finalbutton = [];
+  const selected = document.querySelector("input[type=radio]:checked");
+  //navigation buttons --> right hand cornor question buttons
+  questions.forEach((q, id) => {
+    const btn = document.createElement("button"); // here it create buttons for options through js
     btn.innerText = id + 1;
+
+    btn.name = id.toString();
+
     btn.classList.add("navbtn");
     navbuttons_display.appendChild(btn);
 
-    if (selected) console.log(selected.value);
+    finalbutton.push(btn);
 
-    if (selected) {
-      btn.checked = true;
-    } else {
-      btn.checked = false;
-    }
+    btn.addEventListener("click", () => {});
   });
+
+  return finalbutton;
 }

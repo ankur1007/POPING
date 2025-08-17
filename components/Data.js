@@ -14,7 +14,7 @@ export const questions = [
     answer: 5,
     option: [18, 4, 5, 2],
   },
-
+  
   {
     text: "LCM of 2 natural numbers a and b where a > b is 429. What is the maximum possible sum of the digits of b?",
     answer: 12,

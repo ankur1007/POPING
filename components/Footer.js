@@ -1,43 +1,41 @@
 import { questions } from "./Data.js";
 import { mainOptions } from "../Main.js";
-let emptyArray = [];
+import { navigationbutton } from "./Navigation.js";
+let userAnswer = {};
 let currentIndex = 0;
 let Index = 0;
-
+const btn = navigationbutton();
 export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
-  
-  //save and next
-  
+  //save and next -ankur sharma
   newpage.addEventListener("click", () => {
-    
+    const selectedoption = document.querySelector("input[type=radio]:checked");
+
+    tookoption.forEach((button, id) => {
+      button.value = questions[currentIndex].option[id];
+      // button.checked = userAnswer[currentIndex] === button.value;
+    });
+
+    {
+      if (selectedoption) {
+        userAnswer[currentIndex] = selectedoption.value;
+      }
+    }
+
     currentIndex = currentIndex + 1;
     if (currentIndex >= questions.length) {
       currentIndex = 0;
     }
-    
-    
-    const selected = document.querySelector("input[type=radio]:checked");
+    mainOptions(currentIndex);
 
-    tookoption.forEach(
-      (button, id) => (button.value = questions[currentIndex].option[id])
-    );
-    if (selected) {
-      emptyArray.splice(0, 0, selected.value);
-    }
-
-    
-    console.log(emptyArray);
-    
-    tookoption.forEach((btnOption, option) => {
-      btnOption.checked = false;
-      btnOption.disabled = false;
+    // for navigating  the button
+    btn.forEach((button, id) => {
+      button.addEventListener("click", () => {
+        currentIndex = id;
+        mainOptions(currentIndex);
+      });
     });
 
-    // tookoption.forEach((save) => {
-    //   const values = save.value;
-    //   fetching.push(values);
-    // });
-    // let fetch = selected.textContent;
+    console.log(userAnswer); //answer array
   });
 
   //previous page

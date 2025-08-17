@@ -1,6 +1,7 @@
 import { questions } from "./components/Data.js";
 import { allevents } from "./components/Footer.js";
-import { totalbutton } from "./components/Navigation.js";
+import { navigationbutton } from "./components/Navigation.js";
+import { timer } from "./components/timer.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -10,21 +11,25 @@ const previouspage = document.getElementById("previous");
 // options buttons-A,b,c,d
 tookoption.forEach((button) =>
   button.addEventListener("click", () => {
-    console.log(button.id);
+    // console.log(button.id);
     tookoption.forEach((otherbutton) => {
       if (otherbutton !== button) {
-        otherbutton.disabled = true;
+        // otherbutton.disabled = true;
       }
     });
   })
 );
-
-//options function-a,b,c,d
+//options(a,b,c,d ) + question placeholding  function
 export function mainOptions(Index) {
-  const placeholder = document.getElementById("placeholder");
+  const placeholder = document.getElementById("questionplaceholder");
   const tookPlaceholder = document.querySelectorAll(".optionhold");
 
   placeholder.innerText = questions[Index].text;
+
+  tookPlaceholder.forEach((element) => {
+    element.classList.add("optiontext");
+    // element.value = button.value;
+  });
 
   [...tookPlaceholder].map((span, id) => {
     span.innerText = questions[Index].option[id];
@@ -33,4 +38,7 @@ export function mainOptions(Index) {
 
 allevents({ newpage, previouspage, clearbtn, tookoption });
 mainOptions(0);
-totalbutton();
+
+
+const my_time = timer();
+setInterval(my_time.updatetimer, 1000);

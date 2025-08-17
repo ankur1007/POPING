@@ -39,6 +39,7 @@ body {
   grid-area: navbutton;
   background-color: antiquewhite;
 
+  overflow: scroll;
   margin: 0.8rem;
   border: 1px solid black;
 }
@@ -53,12 +54,18 @@ body {
     "profile timer"
     "navbutton navbutton"
     "finalbutton  finalbutton";
-  grid-template-rows: 50px 1fr 60px;
+  grid-template-rows: 40px 1fr 60px;
   grid-template-columns: 60% 40%;
   font-size: small;
 }
 .navbtn {
-  border-radius: 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-size: 10px;
+  border: 1px solid;
+}
+.navbtn:hover {
+  box-shadow: black;
 }
 
 #navigationbutton {
@@ -162,3 +169,10 @@ body {
   color: black;
 }
 
+.selected {
+  background-color: blue;
+  color: white;
+}
+.optiontext {
+  cursor: pointer;
+}
