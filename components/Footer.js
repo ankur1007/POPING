@@ -1,50 +1,61 @@
 import { questions } from "./Data.js";
-import { mainOptions } from "../Main.js";
-import { navigationbutton } from "./Navigation.js";
+import { mainOptions } from "./mainoption.js";
+import {
+  getCurrentIndex,
+  setCurrentIndex,
+  nextIndex,
+  prevIndex,
+} from "./State.js";
 let userAnswer = {};
-let currentIndex = 0;
+
 let Index = 0;
-const btn = navigationbutton();
+// const btn = navigationbutton();
+
 export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
   //save and next -ankur sharma
+
   newpage.addEventListener("click", () => {
     const selectedoption = document.querySelector("input[type=radio]:checked");
 
-    tookoption.forEach((button, id) => {
-      button.value = questions[currentIndex].option[id];
-      // button.checked = userAnswer[currentIndex] === button.value;
-    });
-
-    {
-      if (selectedoption) {
-        userAnswer[currentIndex] = selectedoption.value;
-      }
+    const idx = getCurrentIndex();
+    if (selectedoption) {
+      const qid = questions[idx].id;
+      userAnswer[qid] = selectedoption.value;
     }
 
-    currentIndex = currentIndex + 1;
-    if (currentIndex >= questions.length) {
-      currentIndex = 0;
-    }
-    mainOptions(currentIndex);
+    // tookoption.forEach((button, id) => {
+    //   button.addEventListener("click", () => {
+    //     button.value = questions[currentIndex].option[id];
+    //     userAnswer[currentIndex] = button.value;
 
-    // for navigating  the button
-    btn.forEach((button, id) => {
-      button.addEventListener("click", () => {
-        currentIndex = id;
-        mainOptions(currentIndex);
-      });
+    //     //
+    //   });
+    // });
+    // debugger;
+    const newIdx = nextIndex(questions.length);
+    const qidNext = questions[newIdx].id;
+
+    tookoption.forEach((button) => {
+      button.checked = userAnswer[qidNext] === button.value;
     });
-
     console.log(userAnswer); //answer array
+
+    function loadnewpage() {
+      const newIdx = nextIndex(questions.length);
+      return mainOptions(newIdx);
+    }
+    loadnewpage();
   });
 
   //previous page
   previouspage.addEventListener("click", () => {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = questions.length - 1;
-    }
-    mainOptions(currentIndex);
+    const newIdx = prevIndex(questions.length);
+    mainOptions(newIdx);
+
+    const qid = questions[newIdx].id;
+    tookoption.forEach((button, id) => {
+      button.checked = userAnswer[qid] === button.value;
+    });
   });
 
   //clear button

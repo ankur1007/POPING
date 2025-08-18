@@ -1,48 +1,186 @@
 export const questions = [
   {
-    text: "The least multiple of 8, which leaves a remainder of 4,when divided by 9, 15, 18 and 30 is",
+    id: "Q1",
+    text: "The least multiple of 8, which leaves a remainder of 4, when divided by 9, 15, 18 and 30 is",
     answer: 184,
     option: [181, 184, 156, 200],
   },
   {
-    text: "On dividing a certain number by 8, 10, and 12,the remainders obtained are 2, 4, and 6, respectively. Find the largest three-digit number satisfying this condition",
+    id: "Q2",
+    text: "On dividing a certain number by 8, 10, and 12, the remainders obtained are 2, 4, and 6, respectively. Find the largest three-digit number satisfying this condition",
     answer: 945,
     option: [896, 948, 945, 909],
   },
   {
+    id: "Q3",
     text: "The sum of the two numbers is 121, and their HCF is 11. How many are such pairs of numbers possible?",
     answer: 5,
     option: [18, 4, 5, 2],
   },
-  
   {
+    id: "Q4",
     text: "LCM of 2 natural numbers a and b where a > b is 429. What is the maximum possible sum of the digits of b?",
     answer: 12,
     option: [12, 18, 10, 5],
   },
   {
+    id: "Q5",
     text: "What highest power of 15 divides 50! completely?",
     answer: 12,
     option: [12, 18, 2, 6],
   },
-
   {
+    id: "Q6",
     text:
-      "Shubham was working in company A. He got a letter from company  B regarding his recruitment in the company with a hike of 20% on his current salary. Upon learning this," +
+      "Shubham was working in company A. He got a letter from company B regarding his recruitment in the company with a hike of 20% on his current salary. Upon learning this," +
       " his own company increased his salary by 25%. Company B gave " +
-      "hima hike of 16.66% more when it came to know the increase by company A. This was repeated one more time by " +
-      "companyA increasing the salary by 20% more and company B giving a hike of 14.28%more. Finally, Shubham joined company B. What is the percentage increase inShubham’s salary?",
+      "him a hike of 16.66% more when it came to know the increase by company A. This was repeated one more time by " +
+      "company A increasing the salary by 20% more and company B giving a hike of 14.28% more. Finally, Shubham joined company B. What is the percentage increase in Shubham’s salary?",
     answer: 45,
     option: ["40%", "45%", "60%", "65%"],
   },
   {
+    id: "Q7",
     text: "N is a natural number which has four factors. If 10 ≤ N ≤ 65, then how many values are possible for N?",
     answer: 12,
     option: [12, 15, 13, 19],
   },
   {
+    id: "Q8",
     text: "Find trailing zeros in 89! + 88!.",
     answer: 21,
     option: [121, 18, 21, 6],
+  },
+  {
+    id: "Q9",
+    text: "The smallest number which, when divided by 12, 15, and 20, leaves a remainder of 7 in each case is",
+    answer: 67,
+    option: [60, 67, 75, 80],
+  },
+  {
+    id: "Q10",
+    text: "The greatest number that divides 165, 220, and 275 leaving remainders 5, 10, and 15 respectively is",
+    answer: 55,
+    option: [50, 55, 60, 65],
+  },
+  {
+    id: "Q11",
+    text: "The HCF of two numbers is 13, and their LCM is 273. If one number is 39, the other number is",
+    answer: 91,
+    option: [78, 91, 104, 117],
+  },
+  {
+    id: "Q12",
+    text: "The smallest number which is divisible by 6, 9, and 12 and leaves a remainder of 3 when divided by 7 is",
+    answer: 39,
+    option: [33, 36, 39, 42],
+  },
+  {
+    id: "Q13",
+    text: "The smallest number which, when divided by 5, 6, and 8, leaves remainders 2, 3, and 5 respectively is",
+    answer: 53,
+    option: [50, 53, 56, 60],
+  },
+  {
+    id: "Q14",
+    text: "The LCM of two numbers is 360, and their HCF is 12. If one number is 72, the other number is",
+    answer: 60,
+    option: [48, 60, 72, 84],
+  },
+  {
+    id: "Q15",
+    text: "The smallest number divisible by 15, 20, and 24, which leaves a remainder of 9 when divided by 27 is",
+    answer: 369,
+    option: [360, 369, 378, 390],
+  },
+  {
+    id: "Q16",
+    text: "The largest four-digit number divisible by 15, 25, and 40 is",
+    answer: 9960,
+    option: [9900, 9940, 9960, 9980],
+  },
+  {
+    id: "Q17",
+    text: "The HCF of two numbers is 17, and their sum is 204. How many such pairs of numbers are possible?",
+    answer: 3,
+    option: [2, 3, 4, 5],
+  },
+  {
+    id: "Q18",
+    text: "The smallest number which, when divided by 9 and 12, leaves a remainder of 5 in each case is",
+    answer: 41,
+    option: [36, 41, 45, 48],
+  },
+  {
+    id: "Q19",
+    text: "The greatest number that divides 72, 96, and 120 leaving remainders 12, 16, and 20 respectively is",
+    answer: 60,
+    option: [48, 60, 72, 84],
+  },
+  {
+    id: "Q20",
+    text: "The LCM of two numbers is 840, and their HCF is 14. If one number is 56, the other number is",
+    answer: 210,
+    option: [196, 210, 224, 238],
+  },
+  {
+    id: "Q21",
+    text: "The smallest number which is divisible by 8, 12, and 16 and leaves a remainder of 7 when divided by 19 is",
+    answer: 55,
+    option: [48, 55, 64, 72],
+  },
+  {
+    id: "Q22",
+    text: "The smallest number which, when divided by 7, 14, and 21, leaves remainders 3, 6, and 9 respectively is",
+    answer: 51,
+    option: [42, 51, 63, 72],
+  },
+  {
+    id: "Q23",
+    text: "The sum of two numbers is 150, and their HCF is 15. How many such pairs of numbers are possible?",
+    answer: 4,
+    option: [3, 4, 5, 6],
+  },
+  {
+    id: "Q24",
+    text: "The smallest number which, when divided by 10, 15, and 25, leaves a remainder of 5 in each case is",
+    answer: 155,
+    option: [150, 155, 160, 165],
+  },
+  {
+    id: "Q25",
+    text: "The greatest number that divides 130, 195, and 260 leaving remainders 10, 15, and 20 respectively is",
+    answer: 65,
+    option: [60, 65, 70, 75],
+  },
+  {
+    id: "Q26",
+    text: "The LCM of two numbers is 504, and their HCF is 18. If one number is 72, the other number is",
+    answer: 126,
+    option: [108, 126, 144, 162],
+  },
+  {
+    id: "Q27",
+    text: "The smallest number divisible by 9, 12, and 18, which leaves a remainder of 4 when divided by 13 is",
+    answer: 112,
+    option: [108, 112, 116, 120],
+  },
+  {
+    id: "Q28",
+    text: "The largest three-digit number divisible by 6, 8, and 12 is",
+    answer: 984,
+    option: [960, 972, 984, 996],
+  },
+  {
+    id: "Q29",
+    text: "The HCF of two numbers is 19, and their LCM is 1140. If one number is 95, the other number is",
+    answer: 228,
+    option: [190, 209, 228, 247],
+  },
+  {
+    id: "Q30",
+    text: "The smallest number which, when divided by 4, 6, and 9, leaves remainders 2, 4, and 7 respectively is",
+    answer: 34,
+    option: [30, 34, 38, 42],
   },
 ];

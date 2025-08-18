@@ -1,7 +1,9 @@
-import { questions } from "./components/Data.js";
+// import { questions } from "./components/Data.js";
 import { allevents } from "./components/Footer.js";
-import { navigationbutton } from "./components/Navigation.js";
 import { timer } from "./components/timer.js";
+import { answer } from "./components/Answer.js";
+import { mainOptions } from "./components/mainoption.js";
+import {navigationbutton} from "./components/Navigation.js"
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -20,25 +22,11 @@ tookoption.forEach((button) =>
   })
 );
 //options(a,b,c,d ) + question placeholding  function
-export function mainOptions(Index) {
-  const placeholder = document.getElementById("questionplaceholder");
-  const tookPlaceholder = document.querySelectorAll(".optionhold");
-
-  placeholder.innerText = questions[Index].text;
-
-  tookPlaceholder.forEach((element) => {
-    element.classList.add("optiontext");
-    // element.value = button.value;
-  });
-
-  [...tookPlaceholder].map((span, id) => {
-    span.innerText = questions[Index].option[id];
-  });
-}
 
 allevents({ newpage, previouspage, clearbtn, tookoption });
 mainOptions(0);
 
-
 const my_time = timer();
 setInterval(my_time.updatetimer, 1000);
+answer();
+// navigationbutton();

@@ -16,6 +16,7 @@ function mainOption(value) {
   container.appendChild(label);
 
   return container;
+  
 }
 let currentIndex = 0;
 let letter = ["A", "B", "C", "D"];
