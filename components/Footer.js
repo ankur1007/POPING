@@ -1,12 +1,13 @@
 import { questions } from "./Data.js";
 import { mainOptions } from "./mainoption.js";
+import { coloredbtn } from "./Navigation.js";
 import {
   getCurrentIndex,
   setCurrentIndex,
   nextIndex,
   prevIndex,
 } from "./State.js";
-let userAnswer = {};
+export let userAnswer = {};
 
 let Index = 0;
 // const btn = navigationbutton();
@@ -18,20 +19,12 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
     const selectedoption = document.querySelector("input[type=radio]:checked");
 
     const idx = getCurrentIndex();
+
     if (selectedoption) {
-      const qid = questions[idx].id;
+      const qid = questions[idx].id; // jus destructure
       userAnswer[qid] = selectedoption.value;
     }
 
-    // tookoption.forEach((button, id) => {
-    //   button.addEventListener("click", () => {
-    //     button.value = questions[currentIndex].option[id];
-    //     userAnswer[currentIndex] = button.value;
-
-    //     //
-    //   });
-    // });
-    // debugger;
     const newIdx = nextIndex(questions.length);
     const qidNext = questions[newIdx].id;
 
@@ -41,11 +34,11 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
     console.log(userAnswer); //answer array
 
     function loadnewpage() {
-      const newIdx = nextIndex(questions.length);
       return mainOptions(newIdx);
     }
     loadnewpage();
   });
+  coloredbtn();
 
   //previous page
   previouspage.addEventListener("click", () => {
@@ -53,9 +46,9 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
     mainOptions(newIdx);
 
     const qid = questions[newIdx].id;
-    tookoption.forEach((button, id) => {
-      button.checked = userAnswer[qid] === button.value;
-    });
+    // tookoption.forEach((button, id) => {
+    //   button.checked = userAnswer[qid] === button.value;
+    // });
   });
 
   //clear button
@@ -66,3 +59,4 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
     });
   });
 }
+

@@ -20,3 +20,12 @@ export function prevIndex(total) {
   currentIndex = (currentIndex - 1 + total) % total;
   return currentIndex;
 }
+
+let colored_state = 0;
+
+export function getcoloredstate() {
+  return colored_state;
+}
+export function setcoloredstate() {
+  colored_state = colored_state + 1;
+}

@@ -3,7 +3,7 @@ import { allevents } from "./components/Footer.js";
 import { timer } from "./components/timer.js";
 import { answer } from "./components/Answer.js";
 import { mainOptions } from "./components/mainoption.js";
-import {navigationbutton} from "./components/Navigation.js"
+import { navigationbutton } from "./components/Navigation.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");

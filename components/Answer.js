@@ -1,13 +1,17 @@
-// // import { questions } from "./Data";
+import { questions } from "./Data.js";
+import { userAnswer } from "./Footer.js";
+import { getCurrentIndex } from "./State.js";
 
 export function answer() {
-//   let userAnswer = {};
-//   let currentIndex = 0;
-//   const tookoption = document.querySelectorAll("input[type=radio]");
+  questions.forEach((ques) => {
+    const selected_answer = userAnswer[ques.id];
 
-// //   tookoption.forEach((button, id) => {
-// //     button.addEventListener("click", () => {
-// //       userAnswer[currentIndex] = button.value;
-// //     });
-// //   });
+    if (selected_answer === ques.answer) {
+      return console.log("correct");
+    } else {
+      console.log("wrong");
+    }
+    //   userAnswer[getCurrentIndex] = button.value;
+    //   });
+  });
 }
