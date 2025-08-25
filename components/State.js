@@ -1,8 +1,9 @@
 // common state for all
 
 let currentIndex = 0;
+// debugger;    
 
-export function getCurrentIndex() {
+export function getCurrentIndex() {       ///behind the scene
   return currentIndex;
 }
 

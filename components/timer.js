@@ -20,8 +20,8 @@ export function timer() {
     
     time--;
   
+    displaytimer.textContent = secondsformat(time);
     return time;
   }
-  displaytimer.textContent = secondsformat(time);
   return { updatetimer, secondsformat };
 }

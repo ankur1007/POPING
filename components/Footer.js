@@ -1,6 +1,7 @@
 import { questions } from "./Data.js";
 import { mainOptions } from "./mainoption.js";
 import { coloredbtn } from "./Navigation.js";
+import { quesno } from "./mainoption.js";
 import {
   getCurrentIndex,
   setCurrentIndex,
@@ -24,10 +25,10 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
       const qid = questions[idx].id; // jus destructure
       userAnswer[qid] = selectedoption.value;
     }
+    // debugger;
 
     const newIdx = nextIndex(questions.length);
     const qidNext = questions[newIdx].id;
-
     tookoption.forEach((button) => {
       button.checked = userAnswer[qidNext] === button.value;
     });
@@ -37,6 +38,8 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
       return mainOptions(newIdx);
     }
     loadnewpage();
+
+    quesno();
   });
   coloredbtn();
 
@@ -46,9 +49,9 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
     mainOptions(newIdx);
 
     const qid = questions[newIdx].id;
-    // tookoption.forEach((button, id) => {
-    //   button.checked = userAnswer[qid] === button.value;
-    // });
+    tookoption.forEach((button, id) => {
+      button.checked = userAnswer[qid] === button.value;
+    });
   });
 
   //clear button
@@ -60,3 +63,6 @@ export function allevents({ newpage, previouspage, clearbtn, tookoption }) {
   });
 }
 
+export function getteranswer() {
+  return userAnswer;
+}

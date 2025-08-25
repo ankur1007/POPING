@@ -21,12 +21,13 @@ tookoption.forEach((button) =>
     });
   })
 );
+
 //options(a,b,c,d ) + question placeholding  function
 
 allevents({ newpage, previouspage, clearbtn, tookoption });
-mainOptions(0);
 
 const my_time = timer();
 setInterval(my_time.updatetimer, 1000);
 answer();
 // navigationbutton();
+mainOptions(0);

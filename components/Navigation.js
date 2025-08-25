@@ -1,6 +1,7 @@
 import { mainOptions } from "./mainoption.js";
 import { questions } from "./Data.js";
 import { setCurrentIndex, getCurrentIndex } from "./State.js";
+import { quesno } from "./mainoption.js";
 
 export function navigationbutton() {
   const navbuttons_display = document.getElementById("navigationbutton");
@@ -29,9 +30,7 @@ btn.forEach((button, id) => {
   button.addEventListener("click", () => {
     setCurrentIndex(id); // <-- shared state
     mainOptions(id); // render that question
-    // (Optional) If you want to restore the previously chosen option here,
-    // you can dispatch a custom event and let footer.js handle restoring,
-    // or move the restore logic into mainOptions where you have access to answers.
+    quesno();
   });
 });
 export function coloredbtn() {
@@ -42,3 +41,6 @@ export function coloredbtn() {
   });
 }
 coloredbtn();
+quesno();
+
+
