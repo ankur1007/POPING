@@ -9,6 +9,7 @@ const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
 const clearbtn = document.getElementById("clearbutton");
 const previouspage = document.getElementById("previous");
+const markedQuestion = document.getElementById("markedQuestion");
 
 // options buttons-A,b,c,d
 tookoption.forEach((button) =>
@@ -24,7 +25,7 @@ tookoption.forEach((button) =>
 
 //options(a,b,c,d ) + question placeholding  function
 
-allevents({ newpage, previouspage, clearbtn, tookoption });
+allevents({ newpage, previouspage, clearbtn, tookoption, markedQuestion });
 
 const my_time = timer();
 setInterval(my_time.updatetimer, 1000);

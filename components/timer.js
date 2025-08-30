@@ -11,15 +11,14 @@ export function timer() {
       .toString()
       .padStart(2, "0")}:${second.toString().padStart(2, "0")}`;
   }
-
   function updatetimer() {
     if (time <= 10) {
-      displaytimer.textContent = secondsformat();
+      // displaytimer.textContent = secondsformat();
       isrunning = false;
     }
-    
+
     time--;
-  
+
     displaytimer.textContent = secondsformat(time);
     return time;
   }
