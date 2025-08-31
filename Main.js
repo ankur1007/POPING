@@ -4,6 +4,7 @@ import { timer } from "./components/timer.js";
 import { answer } from "./components/Answer.js";
 import { mainOptions } from "./components/mainoption.js";
 import { navigationbutton } from "./components/Navigation.js";
+import { create_signin } from "./components/Sign_in.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -23,6 +24,15 @@ tookoption.forEach((button) =>
   })
 );
 
+
+HeaderSignup.onclick = function () {
+  document.getElementById("authModal").classList.remove("hidden");
+}
+
+
+
+
+
 //options(a,b,c,d ) + question placeholding  function
 
 allevents({ newpage, previouspage, clearbtn, tookoption, markedQuestion });
@@ -32,3 +42,7 @@ setInterval(my_time.updatetimer, 1000);
 answer();
 // navigationbutton();
 mainOptions(0);
+// import { timer } from "./timer.js";
+
+timer().updatetimer();
+create_signin();

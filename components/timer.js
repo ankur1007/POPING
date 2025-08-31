@@ -1,26 +1,44 @@
 export function timer() {
-  let time = 3 * 60 * 60;
-  let isrunning = false;
-  const displaytimer = document.querySelector(".timer");
-  function secondsformat() {
-    let hour = Math.floor(time / 3600);
-    let minutes = Math.floor((time % 3600) / 60);
-    let second = Math.floor(time % 60);
+  let time = 3 * 60 * 60; // 3 hours
 
-    return `${hour.toString().padStart(2, "0")}: ${minutes
+  // load from sessionStorage if available
+  if (sessionStorage.getItem("timeLeft")) {
+    time = parseInt(sessionStorage.getItem("timeLeft"), 10);
+  } else {
+    sessionStorage.setItem("timeLeft", time);
+  }
+
+  const displaytimer = document.querySelector(".timer");
+
+  // format helper
+  function formatTime(seconds) {
+    let hour = Math.floor(seconds / 3600);
+    let minutes = Math.floor((seconds % 3600) / 60);
+    let second = seconds % 60;
+
+    return `${hour.toString().padStart(2, "0")}:${minutes
       .toString()
       .padStart(2, "0")}:${second.toString().padStart(2, "0")}`;
   }
+
   function updatetimer() {
-    if (time <= 10) {
-      // displaytimer.textContent = secondsformat();
-      isrunning = false;
-    }
+    // show immediately once
+    let timeLeft = parseInt(sessionStorage.getItem("timeLeft"), 10);
+    displaytimer.textContent = formatTime(timeLeft);
 
-    time--;
-
-    displaytimer.textContent = secondsformat(time);
-    return time;
+    const interval = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        // sessionStorage.removeItem("timeLeft");
+        // displaytimer.textContent = "00:00:00";
+        alert("Time's up!");
+      } else {
+        timeLeft--;
+        sessionStorage.setItem("timeLeft", timeLeft);
+        displaytimer.textContent = formatTime(timeLeft);
+      }
+    }, 1000);
   }
-  return { updatetimer, secondsformat };
+
+  return { updatetimer };
 }

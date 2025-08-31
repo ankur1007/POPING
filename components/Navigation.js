@@ -14,9 +14,11 @@ export function navigationbutton() {
     btn.innerText = id + 1;
 
     if (id === 0) {
-      btn.className = "bg-red-600 text-white rounded py-1 w-6 click";
+      btn.className =
+        "bg-red-600 text-white  text-[10px] rounded py-1 w-6 click";
     } else {
-      btn.className = "text-black bg-gray-400 rounded btn-sm py-1 w-6 click ";
+      btn.className =
+        "text-black bg-gray-400 text-[10px] rounded btn-sm py-1 w-6 click ";
     }
     navbuttons_display.appendChild(btn);
 

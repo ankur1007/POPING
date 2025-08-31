@@ -27,6 +27,13 @@
         <h1 class="text-white text-xl font-bold mx-auto font-[Boldonse]">
           MOCK TEST PORTAL
         </h1>
+
+        <button
+          id="HeaderSignup"
+          class="absolute right-4 bg-white text-blue-600 text-xs px-3 py-1 rounded hover:bg-blue-100"
+        >
+          Signup / Login
+        </button>
       </header>
 
       <!-- Main Section -->
@@ -114,8 +121,8 @@
 
         <!-- Navigation Buttons -->
         <div class="m-1 border bg-blue-50 p-2 overflow-y-auto">
-          <p class="font-bold text-xs mb-2">Legend</p>
-          <div class="flex flex-wrap gap-2 text-xs">
+          <p class="font-bold mb-2">Legend</p>
+          <div class="flex flex-wrap gap-2 text-[10px]">
             <p class="flex items-center gap-1">
               <span class="w-3.5 h-3.5 bg-green-600 rounded"></span> Answered
             </p>
@@ -130,14 +137,11 @@
             </p>
           </div>
           <hr class="my-2" />
-          <p class="mb-1">You are viewing S1 section</p>
-          <div
-            id="navigationbutton"
-            class="flex flex-wrap gap-2 p-2 justify-"
-          ></div>
+          <p class="mb-1 text-[10px]">You are viewing S1 section</p>
+          <div id="navigationbutton" class="flex flex-wrap gap-2 p-2 m-3"></div>
         </div>
 
-        <!-- Final Submit -->
+        <!-- Final Submit  -->
         <div class="flex justify-center items-center">
           <button id="alertBtn" class="bg-blue-200 px-6 py-1 text-xs rounded">
             Submit
@@ -146,7 +150,7 @@
       </nav>
     </div>
 
-    <!-- Custom Alert Modal -->
+    <!-- Custom Alert Modal Ankur -->
     <div
       id="customAlert"
       class="hidden fixed inset-0 bg-black/60 flex justify-center items-center"
@@ -169,6 +173,41 @@
             No
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- signup signin by Ankur -->
+
+    <div
+      id="authModal"
+      class="hidden inset-0 bg-black/60 flex justify-center items-center text-[15px] fixed"
+    >
+      <div class="bg-white p-6 rounded shadow w-72 text-center">
+        <h2 class="font-bold mb-3">Login / Signup</h2>
+        <input
+          id="username"
+          type="text"
+          placeholder="Username"
+          class="border p-1 rounded w-full mb-2"
+        />
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          class="border p-1 rounded w-full mb-2"
+        />
+        <button
+          id="signupBtn"
+          class="bg-blue-500 text-white px-3 py-1 rounded w-full mb-1"
+        >
+          Signup
+        </button>
+        <button
+          id="loginBtn"
+          class="bg-green-500 text-white px-3 py-1 rounded w-full"
+        >
+          Login
+        </button>
       </div>
     </div>
 
