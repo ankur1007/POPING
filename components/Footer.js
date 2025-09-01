@@ -3,6 +3,7 @@ import { mainOptions } from "./mainoption.js";
 import { coloredBtn } from "./Navigation.js";
 import { quesNo } from "./mainoption.js";
 import { btn } from "./Navigation.js";
+import { removeColoredBorderoptions } from "./mainoption.js";
 import {
   getCurrentIndex,
   setCurrentIndex,
@@ -29,20 +30,20 @@ export function allevents({
 
     const idx = getCurrentIndex();
     // debugger;
-    if (selectedoption ) {
+    if (selectedoption) {
       const qid = questions[idx].id; // jus destructure
       userAnswer[qid] = selectedoption.value;
       finalbutton[idx].className =
         "bg-green-600 text-white rounded py-1 w-6 click ";
+
       // console.log(userAnswer);
     }
     // debugger;
 
-    
-
     const newIdx = nextIndex(questions.length);
     const qidNext = questions[newIdx].id;
-    tookoption.forEach((button) => {
+    // debugger;
+    [...tookoption].forEach((button) => {
       button.checked = userAnswer[qidNext] === button.value;
     });
     console.log(userAnswer); //answer array
@@ -56,10 +57,11 @@ export function allevents({
 
     tookoption.forEach((opt) => {
       opt.checked = userAnswer[questions[getCurrentIndex()].id] === opt.value;
-      
     });
     // coloredBtn(newIdx);
     btn[newIdx].click();
+
+    removeColoredBorderoptions();
   });
 
   //previous page
@@ -85,8 +87,11 @@ export function allevents({
     tookoption.forEach((btn) => {
       btn.disabled = false;
       btn.checked = false;
-      markedQuestion.style = false;
+      
     });
+    finalbutton[getCurrentIndex()].className =
+        "bg-red-600  text-white rounded py-1 w-6 click ";
+    removeColoredBorderoptions();
   });
 }
 

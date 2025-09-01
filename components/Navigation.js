@@ -6,6 +6,7 @@ import { allevents } from "./Footer.js";
 
 export const finalbutton = [];
 const selected = document.querySelectorAll("input[type=radio]:checked");
+// const tookoption = document.querySelectorAll("input[type=radio]");
 export function navigationbutton() {
   const navbuttons_display = document.getElementById("navigationbutton");
   //navigation buttons --> right hand cornor question buttons
@@ -36,9 +37,9 @@ btn.forEach((button, id) => {
     setCurrentIndex(id); // <-- shared state
     mainOptions(id); // render that question
     quesNo();
-    tookoption.forEach((opt) => {
-      opt.checked = userAnswer[questions[getCurrentIndex()].id] === opt.value;
-    });
+    // tookoption.forEach((opt) => {
+    //   opt.checked = userAnswer[questions[getCurrentIndex()].id] === opt.value;
+    // });
   });
 });
 export function coloredBtn() {

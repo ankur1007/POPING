@@ -25,10 +25,10 @@ export function answer() {
 
       // const currQue = questions.find((que) => que.id === q.id);
       if (+answer[q.id] === correctAnswersMap[q.id]) {
-        console.log("correct");
+        // console.log("correct");
         score++;
       } else {
-        console.log("wrong");
+        // console.log("wrong");
       }
       console.log(score);
     });
