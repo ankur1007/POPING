@@ -19,18 +19,25 @@
       class="grid grid-rows-[10%_90%] grid-cols-[75%_25%] h-full w-full"
     >
       <!-- Header -->
-      <header class="col-span-2 bg-[#3476bb] flex items-center">
+      <header
+        class="col-span-2 bg-[#3476bb] flex items-center bg-gradient-to-r from-[#020024] via-[#090979f5] to-[#00d4ff e0]"
+      >
         <img
-          class="p-2 w-10 h-10"
-          src="/components/test-checklist-online-learning-education-online-exam-svgrepo-com.svg"
+          class="pb-1 pl-1 w-6 h-6 ml-2"
+          src="https://static.vecteezy.com/system/resources/previews/065/651/892/non_2x/close-ready-white-circular-cloth-patch-with-overlocking-up-for-custom-design-or-logo-placement-against-transparent-background-featuring-clean-stitching-edges-png.png"
         />
-        <h1 class="text-white text-xl font-bold mx-auto font-[Boldonse]">
+        <span
+          class="text-white color-wheat text-[7px] font-bold opacity-90 bold pl-1"
+          >EDU-SPHERE PVT. LIMITED
+        </span>
+        <span class="text-white text-[12px] pb-2 pl-1 mr-3"> |</span>
+        <h1 class="text-white text-[15px] font-bold font-[Boldonse] pb-2">
           MOCK TEST PORTAL
-        </h1>
+        </h1>   
 
         <button
           id="HeaderSignup"
-          class="absolute right-4 bg-white text-blue-600 text-xs px-3 py-1 rounded hover:bg-blue-100"
+          class="absolute right-4 bg-white text-blue-600 text-xs px-3 py-1 rounded hover:bg-blue-100 flex-wrap overflow:hidden"
         >
           Signup / Login
         </button>
@@ -236,6 +243,7 @@
             class="col-span-2 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             rows="3"
             placeholder="Enter your question"
+            id="questionInput"
           ></textarea>
         </div>
 
@@ -259,21 +267,25 @@
               type="text"
               placeholder="Option 1"
               class="w-full border border-gray-300 rounded-md p-1 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              id="option1"
             />
             <input
               type="text"
               placeholder="Option 2"
               class="w-full border border-gray-300 rounded-md p-1 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              id="option2"
             />
             <input
               type="text"
               placeholder="Option 3"
               class="w-full border border-gray-300 rounded-md p-1 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              id="option3"
             />
             <input
               type="text"
               placeholder="Option 4"
               class="w-full border border-gray-300 rounded-md p-1 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              id="option4"
             />
           </div>
         </div>
@@ -282,6 +294,7 @@
         <div class="grid grid-cols-3 gap-4 items-center p-1">
           <label class="text-gray-700 font-medium">Answer:</label>
           <input
+            id="answerInput"
             type="text"
             placeholder="Correct Answer"
             class="col-span-2 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -293,6 +306,7 @@
           <button
             type="button"
             class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 Cancel"
+            id="cancel"
           >
             Cancel
           </button>
@@ -303,6 +317,7 @@
             Save & Edit
           </button>
           <button
+            id="save"
             type="button"
             class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
           >
@@ -312,6 +327,25 @@
       </form>
     </div>
 
+
+    <!-- final Score -->
+
+    <div class=" flex justify-center items-center inset-0 fixed text-[10px] my-5 hidden"
+      id="resultdisplay">
+      <div
+        id="result"
+        class="bg-gray-200 p-6 rounded-lg shadow-lg w-72 text-center animate-fadeIn"
+      >
+        <h2 class="text-xl font-semibold mb-4 border-b pb-2">Result</h2>
+        <p id="score" class="text-lg font-medium mb-4"></p>
+        <button
+          id="closeResult"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Close
+        </button>
+      </div>
+    </div>
     <script type="module" src="./Main.js"></script>
   </body>
 </html>

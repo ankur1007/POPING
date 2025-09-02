@@ -5,6 +5,7 @@ import { answer } from "./components/Answer.js";
 import { mainOptions } from "./components/mainoption.js";
 import { navigationbutton } from "./components/Navigation.js";
 import { create_signin } from "./components/Sign_in.js";
+import { QuestionFunctionality } from "./components/AdminQuestion.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -24,10 +25,18 @@ tookoption.forEach((button) =>
   })
 );
 
-
 HeaderSignup.onclick = function () {
   document.getElementById("authModal").classList.remove("hidden");
-}
+};
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    // Close all modals if open
+    document.getElementById("authModal").classList.add("hidden");
+    document.getElementById("customAlert").classList.add("hidden");
+    document.getElementById("adminQuestions").classList.add("hidden");
+  }
+});
 
 
 
@@ -46,3 +55,4 @@ mainOptions(0);
 
 timer().updatetimer();
 create_signin();
+QuestionFunctionality();

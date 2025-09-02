@@ -1,6 +1,8 @@
 import { questions } from "./Data.js";
 import { getteranswer } from "./Footer.js";
 import { getCurrentIndex } from "./State.js";
+const closeResult = document.getElementById("closeResult");
+const resultDisplay = document.getElementById("resultdisplay");
 
 export function answer() {
   // const submit = document.getElementById("submit");
@@ -9,21 +11,13 @@ export function answer() {
     {}
   );
   console.log(correctAnswersMap);
-  // finalsubmit.addEventListener("click", () => {
-  //   alert("submitted");
-  // });
-  // const quest = getCurrentIndex;
 
   yesBtn.addEventListener("click", () => {
+    let score = 0;
+    const answer = getteranswer();
     questions.forEach((q, i) => {
-      // const selectedanswer = userAnswer[ques.id];
-      let score = 0;
-      // debugger;
-      const answer = getteranswer();
-
-      // const currentQ = questions[getCurrentIndex()];
-
       // const currQue = questions.find((que) => que.id === q.id);
+
       if (+answer[q.id] === correctAnswersMap[q.id]) {
         // console.log("correct");
         score++;
@@ -32,6 +26,18 @@ export function answer() {
       }
       console.log(score);
     });
+
+    resultDisplay.onclick = function () {
+      document.getElementById("resultdisplay").classList.remove("hidden");
+
+      document.getElementById(
+        "score"
+      ).innerText = `Your Score is ${score} out of ${questions.length}`;
+    };
+
+    closeResult.onclick = function () {
+      document.getElementById("resultdisplay").classList.add("hidden");
+    };
   });
 }
 
