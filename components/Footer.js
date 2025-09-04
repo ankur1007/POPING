@@ -1,16 +1,20 @@
-import { questions } from "./Data.js";
-import { mainOptions } from "./mainoption.js";
+import { questions } from "./Answer.js";
+
 import { coloredBtn } from "./Navigation.js";
-import { quesNo } from "./mainoption.js";
-import { btn } from "./Navigation.js";
-import { removeColoredBorderoptions } from "./mainoption.js";
+import {
+  quesNo,
+  removeColoredBorderoptions,
+  mainOptions,
+} from "./mainoption.js";
+import { btn, finalbutton } from "./Navigation.js";
+
 import {
   getCurrentIndex,
   setCurrentIndex,
   nextIndex,
   prevIndex,
 } from "./State.js";
-import { finalbutton } from "./Navigation.js";
+
 export let userAnswer = {};
 
 let Index = 0;
@@ -30,6 +34,7 @@ export function allevents({
 
     const idx = getCurrentIndex();
     // debugger;
+
     if (selectedoption) {
       const qid = questions[idx].id; // jus destructure
       userAnswer[qid] = selectedoption.value;
@@ -43,22 +48,27 @@ export function allevents({
     const newIdx = nextIndex(questions.length);
     const qidNext = questions[newIdx].id;
     // debugger;
-    [...tookoption].forEach((button) => {
-      button.checked = userAnswer[qidNext] === button.value;
-    });
+
+    // [...tookoption].forEach((button) => {
+    //   button.checked = userAnswer[qidNext] === button.value;
+    // });
+
     console.log(userAnswer); //answer array
 
     function loadnewpage() {
+      // to load new question
       return mainOptions(newIdx);
     }
-    loadnewpage();
+    loadnewpage(); // render new question
 
-    quesNo();
+    quesNo(); // question number
 
     tookoption.forEach((opt) => {
       opt.checked = userAnswer[questions[getCurrentIndex()].id] === opt.value;
     });
     // coloredBtn(newIdx);
+    // debugger;
+
     btn[newIdx].click();
 
     removeColoredBorderoptions();
@@ -87,10 +97,9 @@ export function allevents({
     tookoption.forEach((btn) => {
       btn.disabled = false;
       btn.checked = false;
-      
     });
     finalbutton[getCurrentIndex()].className =
-        "bg-red-600  text-white rounded py-1 w-6 click ";
+      "bg-red-600  text-white rounded py-1 w-6 click ";
     removeColoredBorderoptions();
   });
 }

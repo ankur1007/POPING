@@ -1,4 +1,4 @@
-export const questions = [
+export const questionsData = [
   {
     id: "Q1",
     text: "The least multiple of 8, which leaves a remainder of 4, when divided by 9, 15, 18 and 30 is",

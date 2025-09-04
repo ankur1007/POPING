@@ -38,16 +38,12 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-
-
-
-
 //options(a,b,c,d ) + question placeholding  function
 
 allevents({ newpage, previouspage, clearbtn, tookoption, markedQuestion });
 
-const my_time = timer();
-setInterval(my_time.updatetimer, 1000);
+// const my_time = timer();
+// setInterval(my_time.updatetimer, 1000);
 answer();
 // navigationbutton();
 mainOptions(0);

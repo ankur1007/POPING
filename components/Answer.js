@@ -1,8 +1,11 @@
-import { questions } from "./Data.js";
+import { questionsData } from "./Data.js";
 import { getteranswer } from "./Footer.js";
 import { getCurrentIndex } from "./State.js";
 const closeResult = document.getElementById("closeResult");
 const resultDisplay = document.getElementById("resultdisplay");
+
+export const questions = JSON.parse(sessionStorage.getItem("questions")) || questionsData;
+console.log(questions);
 
 export function answer() {
   // const submit = document.getElementById("submit");

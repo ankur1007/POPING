@@ -1,4 +1,4 @@
-import { questions } from "./Data.js";
+import { questions } from "./Answer.js";
 import { getCurrentIndex, nextIndex } from "./State.js";
 export function mainOptions(Index) {
   const placeholder = document.getElementById("questionplaceholder");

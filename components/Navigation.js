@@ -1,14 +1,15 @@
 import { mainOptions } from "./mainoption.js";
-import { questions } from "./Data.js";
+import { questions } from "./Answer.js";
 import { setCurrentIndex, getCurrentIndex } from "./State.js";
 import { quesNo } from "./mainoption.js";
 import { allevents } from "./Footer.js";
+import { userAnswer } from "./Footer.js";
 
 export const finalbutton = [];
-const selected = document.querySelectorAll("input[type=radio]:checked");
 // const tookoption = document.querySelectorAll("input[type=radio]");
 export function navigationbutton() {
   const navbuttons_display = document.getElementById("navigationbutton");
+  const selectedOption = document.querySelectorAll("input[type=radio]:checked");
   //navigation buttons --> right hand cornor question buttons
   questions.forEach((q, id) => {
     const btn = document.createElement("button"); // here it create buttons for options through js
@@ -23,12 +24,16 @@ export function navigationbutton() {
     }
     navbuttons_display.appendChild(btn);
 
+    // if (userAnswer[questions[getCurrentIndex()].id] === selectedOption.value) {
+    //   btn.className = "bg-green-600 text-white rounded py-1 w-6 click ";
+    // }
     finalbutton.push(btn);
   });
 
   return finalbutton;
 }
 // for navigating  the nav buttons
+debugger;
 export const btn = navigationbutton();
 
 // let currentIndex = 0;
