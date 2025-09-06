@@ -7,13 +7,14 @@ export function startexam() {
     // location.reload();
     timer().updatetimer();
     document.getElementById("InstructionPage").classList.add("hidden");
-    document.getElementById("authModal").classList.add("hidden");
   });
 
   return startexams;
 }
 
-const readyExamYes = document.getElementById("yes");
+const readyExamYes = document.getElementById("yesReady");
+const readyExamNo = document.getElementById("notReady");
+
 export function readyForExam() {
   document.getElementById("authModal").classList.add("hidden");
   document.getElementById("readyForExam").classList.remove("hidden");
@@ -21,7 +22,9 @@ export function readyForExam() {
     startexam();
     document.getElementById("InstructionPage").classList.remove("hidden");
     document.getElementById("readyForExam").classList.add("hidden");
-    document.getElementById("authModal").classList.add("hidden");
   });
-  return readyExamYes;
+  readyExamNo.addEventListener("click", () => {
+    document.getElementById("readyForExam").classList.add("hidden");
+    document.getElementById("authModal").classList.remove("hidden");
+  });
 }

@@ -22,12 +22,12 @@ export function mainOptions(Index) {
         if (option.checked) {
           option.parentElement.classList.remove(
             "border",
-            "border-red-300",
+            "border-grey-300",
             "border"
           );
           option.parentElement.classList.add(
             "border",
-            "border-green-300",
+            "border-blue-300",
             "border",
             "rounded",
             "p-1"
@@ -35,12 +35,12 @@ export function mainOptions(Index) {
         } else {
           option.parentElement.classList.remove(
             "border",
-            "border-green-300",
+            "border-blue-300",
             "border"
           );
           option.parentElement.classList.add(
             "border",
-            "border-red-300",
+            "border-grey-300",
             "border",
             "rounded",
             "p-1"
@@ -61,8 +61,8 @@ export function removeColoredBorderoptions() {
   tookoption.forEach((option) => {
     option.parentElement.classList.remove(
       "border",
-      "border-green-300",
-      "border-red-300",
+      "border-grey-300",
+      "border-blue-300",
       "rounded",
       "p-1"
     );

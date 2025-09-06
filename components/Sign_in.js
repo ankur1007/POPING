@@ -23,6 +23,7 @@ export function create_signin() {
 
   cancelBtn.onclick = function () {
     document.getElementById("authModal").classList.add("hidden");
+    
   };
 
   // document.getElementById("admin").onclick = function () {
