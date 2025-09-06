@@ -1,13 +1,10 @@
 import { questions } from "./Answer.js";
-
-import { coloredBtn } from "./Navigation.js";
 import {
   quesNo,
   removeColoredBorderoptions,
   mainOptions,
 } from "./mainoption.js";
-import { btn, finalbutton } from "./Navigation.js";
-
+import { btn, updateButtonColors } from "./Navigation.js";
 import {
   getCurrentIndex,
   setCurrentIndex,
@@ -16,7 +13,7 @@ import {
 } from "./State.js";
 
 export let userAnswer = {};
-
+export let reviewStatus = {};
 let Index = 0;
 // const btn = navigationbutton();
 
@@ -38,14 +35,15 @@ export function allevents({
     if (selectedoption) {
       const qid = questions[idx].id; // jus destructure
       userAnswer[qid] = selectedoption.value;
-      finalbutton[idx].className =
-        "bg-green-600 text-white rounded py-1 w-6 click ";
+      // btn[idx].className = "bg-green-600 text-white rounded py-1 w-6 click ";
 
       // console.log(userAnswer);
     }
     // debugger;
 
     const newIdx = nextIndex(questions.length);
+    mainOptions(newIdx); // render that question
+
     const qidNext = questions[newIdx].id;
     // debugger;
 
@@ -55,12 +53,6 @@ export function allevents({
 
     console.log(userAnswer); //answer array
 
-    function loadnewpage() {
-      // to load new question
-      return mainOptions(newIdx);
-    }
-    loadnewpage(); // render new question
-
     quesNo(); // question number
 
     tookoption.forEach((opt) => {
@@ -69,10 +61,11 @@ export function allevents({
     // coloredBtn(newIdx);
     // debugger;
 
-    btn[newIdx].click();
+    btn[newIdx].click(); //trigger navigationbutton
 
     removeColoredBorderoptions();
-  });
+    updateButtonColors();
+  }); 
 
   //previous page
   previouspage.addEventListener("click", () => {
@@ -83,24 +76,36 @@ export function allevents({
     tookoption.forEach((button, id) => {
       button.checked = userAnswer[qid] === button.value;
     });
+    //  const qid = questions[getCurrentIndex()].id;
+    // reviewStatus[qid] = true;
+   
+      updateButtonColors();
+   
+  });
+  //marked
+
+  markedQuestion.addEventListener("click", () => {
+    const qid = questions[getCurrentIndex()].id;
+    reviewStatus[qid] = true;
+    updateButtonColors();
+
+    // tookoption.forEach((button) => {
+    //   btn[getCurrentIndex()].className =
+    //     "bg-purple-500 text-white rounded py-1 w-6 click ";
+    // });
   });
 
   //clear button
-  markedQuestion.addEventListener("click", () => {
-    tookoption.forEach((button) => {
-      finalbutton[getCurrentIndex()].className =
-        "bg-purple-500 text-white rounded py-1 w-6 click ";
-    });
-  });
-
-  clearbtn.addEventListener("click", () => {
+  clearbtn.addEventListener("click", (id = 0) => {
     tookoption.forEach((btn) => {
       btn.disabled = false;
       btn.checked = false;
     });
-    finalbutton[getCurrentIndex()].className =
+    btn[getCurrentIndex()].className =
       "bg-red-600  text-white rounded py-1 w-6 click ";
     removeColoredBorderoptions();
+
+    delete userAnswer[questions[getCurrentIndex()].id];
   });
 }
 

@@ -2,9 +2,9 @@ import { questionsData } from "./Data.js";
 import { getteranswer } from "./Footer.js";
 import { getCurrentIndex } from "./State.js";
 const closeResult = document.getElementById("closeResult");
-const resultDisplay = document.getElementById("resultdisplay");
 
-export const questions = JSON.parse(sessionStorage.getItem("questions")) || questionsData;
+export const questions =
+  JSON.parse(sessionStorage.getItem("questions")) || questionsData;
 console.log(questions);
 
 export function answer() {
@@ -16,6 +16,7 @@ export function answer() {
   console.log(correctAnswersMap);
 
   yesBtn.addEventListener("click", () => {
+    const resultDisplay = document.getElementById("resultdisplay");
     let score = 0;
     const answer = getteranswer();
     questions.forEach((q, i) => {
@@ -29,14 +30,13 @@ export function answer() {
       }
       console.log(score);
     });
-
-    resultDisplay.onclick = function () {
+  
       document.getElementById("resultdisplay").classList.remove("hidden");
-
+      // debugger;
       document.getElementById(
         "score"
       ).innerText = `Your Score is ${score} out of ${questions.length}`;
-    };
+  
 
     closeResult.onclick = function () {
       document.getElementById("resultdisplay").classList.add("hidden");

@@ -3,7 +3,7 @@ import { allevents } from "./components/Footer.js";
 import { timer } from "./components/timer.js";
 import { answer } from "./components/Answer.js";
 import { mainOptions } from "./components/mainoption.js";
-import { navigationbutton } from "./components/Navigation.js";
+// import { navigationbutton } from "./components/Navigation.js";
 import { create_signin } from "./components/Sign_in.js";
 import { QuestionFunctionality } from "./components/AdminQuestion.js";
 

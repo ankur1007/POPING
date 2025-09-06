@@ -12,7 +12,7 @@ export function QuestionFunctionality() {
     document.getElementById("adminQuestions").classList.add("hidden");
   });
 
-  // question.map((q)=>{ console.log(q)})
+
 
   save.addEventListener("click", () => {
     let questions = JSON.parse(sessionStorage.getItem("questions")) || [];
@@ -39,22 +39,7 @@ export function QuestionFunctionality() {
         document.getElementById("option4").value,
       ],
     };
-    // debugger;
-    // const copiedOption = newQuestion.option.find(
-    //   (opt, id) => opt.value === opt.value
-    // );
-
-    // const copiedOption = newQuestion.option.reduce((acc, curr) => {
-    //   acc[curr] = (acc[curr] || 0) + 1;
-    //   return acc;
-    // }, {});
-    // debugger;
-    // if (copiedOption > 1) {
-    //   alert("Duplicate options. Please enter unique options.");
-    //   return;
-    // }
-
-    // let id = 0;
+    
     const copied = newQuestion.option.map((opt, i) => {
       return newQuestion.option.indexOf(opt) !== i;
     });
@@ -63,10 +48,7 @@ export function QuestionFunctionality() {
       return;
     }
     
-    // if (copiedOption) {
-    //   alert("Duplicate options. Please enter unique options.");
-    //   return;
-    // }
+    
 
     questions.push(newQuestion);
 
