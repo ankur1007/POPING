@@ -4,8 +4,9 @@ export function create_signin() {
   const password = document.getElementById("password");
   const cancelBtn = document.getElementById("cancelBtn");
   const login = document.getElementById("loginBtn");
+  const Admin = document.getElementById("admin");
 
-  document.getElementById("admin").addEventListener("click", () => {
+  Admin.addEventListener("click", () => {
     if (userName.value === "ankur" && password.value === "123") {
       localStorage.setItem(
         "adminCredentials",
@@ -28,9 +29,9 @@ export function create_signin() {
   //   document.getElementById("adminQuestions").classList.remove("hidden");
   //   document.getElementById("authModal").classList.add("hidden");
   // };
-
-  login.addEventListener("click", () => {
-    document.getElementById("authModal").classList.add("hidden");
+  debugger;
+  login.addEventListener("click", (e) => {
+    e.preventDefault();
     readyForExam();
   });
 
