@@ -6,6 +6,7 @@ import { mainOptions } from "./components/mainoption.js";
 // import { navigationbutton } from "./components/Navigation.js";
 import { create_signin } from "./components/Sign_in.js";
 import { QuestionFunctionality } from "./components/AdminQuestion.js";
+import { startexam } from "./components/Instruction.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -49,6 +50,6 @@ answer();
 mainOptions(0);
 // import { timer } from "./timer.js";
 
-timer().updatetimer();
 create_signin();
 QuestionFunctionality();
+// startexam();

@@ -30,13 +30,12 @@ export function answer() {
       }
       console.log(score);
     });
-  
-      document.getElementById("resultdisplay").classList.remove("hidden");
-      // debugger;
-      document.getElementById(
-        "score"
-      ).innerText = `Your Score is ${score} out of ${questions.length}`;
-  
+
+    document.getElementById("resultdisplay").classList.remove("hidden");
+    // debugger;
+    document.getElementById(
+      "score"
+    ).innerText = `Your Score is ${score} out of ${questions.length}`;
 
     closeResult.onclick = function () {
       document.getElementById("resultdisplay").classList.add("hidden");

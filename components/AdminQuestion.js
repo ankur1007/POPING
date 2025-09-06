@@ -10,7 +10,7 @@ export function QuestionFunctionality() {
 
   cancel.addEventListener("click", () => {
     document.getElementById("adminQuestions").classList.add("hidden");
-    location.reload();
+    // location.reload();
   });
 
   save.addEventListener("click", () => {
