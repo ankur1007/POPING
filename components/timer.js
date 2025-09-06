@@ -1,5 +1,6 @@
 export function timer() {
   let time = 3 * 60 * 60; // 3 hours
+  let ispaused = false;
 
   // load from sessionStorage if available
   if (sessionStorage.getItem("timeLeft")) {
@@ -27,17 +28,25 @@ export function timer() {
     displaytimer.textContent = formatTime(timeLeft);
 
     const interval = setInterval(() => {
-      if (timeLeft <= 0) {
-        clearInterval(interval);
-        // sessionStorage.removeItem("timeLeft");
-        // displaytimer.textContent = "00:00:00";
-        alert("Time's up!");
-      } else {
-        timeLeft--;
-        sessionStorage.setItem("timeLeft", timeLeft);
-        displaytimer.textContent = formatTime(timeLeft);
+      if (!ispaused) {
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          // sessionStorage.removeItem("timeLeft");
+          // displaytimer.textContent = "00:00:00";
+          alert("Time's up!");
+        } else {
+          timeLeft--;
+          sessionStorage.setItem("timeLeft", timeLeft);
+          displaytimer.textContent = formatTime(timeLeft);
+        }
       }
     }, 1000);
+
+    const toggleBtn = document.getElementById("toggleButton");
+    toggleBtn.addEventListener("click", () => {
+      ispaused = !ispaused;
+      toggleBtn.textContent = ispaused ? "resume" : "paused";
+    });
   }
 
   return { updatetimer };
