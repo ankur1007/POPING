@@ -10,9 +10,8 @@ export function QuestionFunctionality() {
 
   cancel.addEventListener("click", () => {
     document.getElementById("adminQuestions").classList.add("hidden");
+    location.reload();
   });
-
-
 
   save.addEventListener("click", () => {
     let questions = JSON.parse(sessionStorage.getItem("questions")) || [];
@@ -39,7 +38,7 @@ export function QuestionFunctionality() {
         document.getElementById("option4").value,
       ],
     };
-    
+
     const copied = newQuestion.option.map((opt, i) => {
       return newQuestion.option.indexOf(opt) !== i;
     });
@@ -47,8 +46,6 @@ export function QuestionFunctionality() {
       alert("Duplicate options. Please enter unique options.");
       return;
     }
-    
-    
 
     questions.push(newQuestion);
 
