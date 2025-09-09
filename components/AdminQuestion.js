@@ -1,3 +1,6 @@
+import { getQuestions } from "./Answer.js";
+import { mainOptions } from "./mainoption.js";
+
 export function QuestionFunctionality() {
   const cancel = document.getElementById("cancel");
   const save = document.getElementById("save");
@@ -7,10 +10,16 @@ export function QuestionFunctionality() {
   const option4 = document.getElementById("option4");
   const answerInput = document.getElementById("answerInput");
   const questionInput = document.getElementById("questionInput").value;
-
+  
   cancel.addEventListener("click", () => {
-    document.getElementById("adminQuestions").classList.add("hidden");
-    // location.reload();
+    const questions = getQuestions();
+    if(questions.length > 0) {
+      document.getElementById("adminQuestions").classList.add("hidden");
+      mainOptions(0);
+    }
+    else {
+      alert("No questions available. Please add questions.");
+    }
   });
 
   save.addEventListener("click", () => {

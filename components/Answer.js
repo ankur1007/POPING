@@ -1,14 +1,14 @@
 import { questionsData } from "./Data.js";
 import { getteranswer } from "./Footer.js";
-import { getCurrentIndex } from "./State.js";
 const closeResult = document.getElementById("closeResult");
 
-export const questions =
-  JSON.parse(sessionStorage.getItem("questions")) || questionsData;
-console.log(questions);
+export function getQuestions() {
+  return JSON.parse(sessionStorage.getItem("questions")) || questionsData;
+}
 
 export function answer() {
   // const submit = document.getElementById("submit");
+  const questions = getQuestions();
   const correctAnswersMap = questions.reduce(
     (acc, currQue) => ({ ...acc, [currQue.id]: currQue.answer }),
     {}

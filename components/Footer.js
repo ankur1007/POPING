@@ -1,4 +1,4 @@
-import { questions } from "./Answer.js";
+import { getQuestions } from "./Answer.js";
 import {
   quesNo,
   removeColoredBorderoptions,
@@ -15,6 +15,7 @@ import {
 export let userAnswer = {};
 export let reviewStatus = {};
 let Index = 0;
+const questions = getQuestions();
 // const btn = navigationbutton();
 
 export function allevents({

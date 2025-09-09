@@ -1,5 +1,5 @@
 import { mainOptions, quesNo } from "./mainoption.js";
-import { questions } from "./Answer.js";
+import { getQuestions } from "./Answer.js";
 import { setCurrentIndex, getCurrentIndex } from "./State.js";
 import { selectedbtn } from "./SharedButtonFunctionality.js";
 import { reviewStatus, userAnswer } from "./Footer.js";
@@ -7,6 +7,7 @@ import { reviewStatus, userAnswer } from "./Footer.js";
 export const btn = [];
 
 const tookoption = document.querySelectorAll("input[type=radio]");
+const questions = getQuestions();
 export function navigationbutton() {
   const navbuttons_display = document.getElementById("navigationbutton");
   //navigation buttons --> right hand cornor question buttons

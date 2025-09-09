@@ -1,9 +1,10 @@
-import { questions } from "./Answer.js";
+import { getQuestions } from "./Answer.js";
 import { getCurrentIndex, nextIndex } from "./State.js";
 export function mainOptions(Index) {
   const placeholder = document.getElementById("questionplaceholder");
   const tookPlaceholder = document.querySelectorAll("label > span:last-child");
   const tookoption = document.querySelectorAll("input[type=radio]");
+  const questions = getQuestions();
 
   placeholder.innerText = questions[Index].text;
 
