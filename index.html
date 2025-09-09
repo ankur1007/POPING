@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Boldonse&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   </head>
   <body class="m-0 font-lato h-screen text-[5px]">
     <div
@@ -119,12 +121,20 @@
       </main>
 
       <!-- Sidebar -->
-      <nav class="grid grid-rows-[12%_1fr_10%] bg-gray-50 text-xs border-l">
+      <nav class="grid grid-rows-[10%_1fr_10%] bg-gray-50 text-xs border-l">
         <!-- User Profile -->
         <div class="bg-white p-2 flex flex-col">
-          <div class="font-semibold">Profile of student</div>
-          <div class="text-gray-600 timer" id="toggleButton">Timer</div>
-        </div>
+          <div class=" profile font-semibold " >  </div>
+          <!-- <div class="text-gray-600 " >Timer</div> -->
+           <div class="flex items-center">
+             <button type="button" class="text-gray-600 cursor-pointer pr-2 " id="toggleButton">
+        <i class="fas fa-pause-circle"></i>
+       </button>
+       <div class="text-gray-600" id="displayTimer">00:00:00</div>
+  </div>
+           
+</div>
+      
 
         <!-- Navigation Buttons -->
         <div class="m-1 border bg-blue-50 p-2 overflow-y-auto">
@@ -585,11 +595,10 @@
                                  <p class="text-[8px] px-8 py-1">
               By clicking the "Create my account" button you are accepting our Company's <strong>Terms of Use</strong> and <strong>privacy policy</strong></p>
 
-            <span class="text-[8px] px-8 font-bold flex flex-wrap pr-2">Already have an account? <p class="text-blue-600  "> Log in</p>  </span>
+            <span class="text-[8px] px-8 font-bold flex flex-wrap pr-2">Already have an account? <p class="text-blue-600  "><button class="back">Log in </button> </p>  </span>
             
             
-            <button id="back" class="text-[12px] px-8 font-bold ">← Back </button>
-
+            <button  class=" back text-[12px] px-8 font-bold ">← Back </button>
             <button id="cancelBtn" class="text-[12px]">🗙</button>
           </p>
         </div>

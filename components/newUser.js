@@ -3,7 +3,7 @@ const email = document.getElementById("newEmail");
 const password = document.getElementById("passWord");
 const confirmPasword = document.getElementById("passwordtext");
 const newAccount = document.getElementById("newAccount");
-const back = document.getElementById("back");
+const back = document.querySelectorAll(".back");
 
 export function newuser() {
   newAccount.addEventListener("click", (e) => {
@@ -54,7 +54,10 @@ export function newuser() {
     password.value = "";
     confirmPasword.value = "";
   });
-  back.onclick = function () {
-    document.getElementById("newUser").classList.add("hidden");
-  };
+  back.forEach(
+    (btn) =>
+      (btn.onclick = function () {
+        document.getElementById("newUser").classList.add("hidden");
+      })
+  );
 }

@@ -9,7 +9,8 @@ export function timer() {
     sessionStorage.setItem("timeLeft", time);
   }
 
-  const displaytimer = document.querySelector(".timer");
+  // const displaytimer = document.querySelector(".timer");
+  const displaytimer = document.getElementById("displayTimer");
 
   // format helper
   function formatTime(seconds) {
@@ -25,7 +26,6 @@ export function timer() {
   function updatetimer() {
     // show immediately once
     let timeLeft = parseInt(sessionStorage.getItem("timeLeft"), 10);
-    displaytimer.textContent = formatTime(timeLeft);
 
     const interval = setInterval(() => {
       if (!ispaused) {
@@ -43,9 +43,17 @@ export function timer() {
     }, 1000);
 
     const toggleBtn = document.getElementById("toggleButton");
+    const toggleIcon = toggleBtn.querySelector("i");
     toggleBtn.addEventListener("click", () => {
       ispaused = !ispaused;
-      toggleBtn.textContent = ispaused ? "resume" : "paused";
+
+      if (ispaused) {
+        toggleIcon.classList.remove("fa-pause-circle");
+        toggleIcon.classList.add("fa-play-circle");
+      } else {
+        toggleIcon.classList.remove("fa-play-circle");
+        toggleIcon.classList.add("fa-pause-circle");
+      }
     });
   }
 

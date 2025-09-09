@@ -19,10 +19,14 @@ export function answer() {
     const resultDisplay = document.getElementById("resultdisplay");
     let score = 0;
     const answer = getteranswer();
+    console.log(answer);
     questions.forEach((q, i) => {
       // const currQue = questions.find((que) => que.id === q.id);
-
-      if (+answer[q.id] === correctAnswersMap[q.id]) {
+      debugger;
+      if (
+        +answer[q.id] === +correctAnswersMap[q.id] ||
+        String(answer[q.id]) === String(correctAnswersMap[q.id])
+      ) {
         // console.log("correct");
         score++;
       } else {

@@ -2,11 +2,15 @@ import { timer } from "./timer.js";
 
 export function startexam() {
   const startexams = document.getElementById("startexam");
+  const userName = document.getElementById("username");
 
   startexams.addEventListener("click", () => {
     // location.reload();
     timer().updatetimer();
     document.getElementById("InstructionPage").classList.add("hidden");
+    debugger;
+    const profile = document.querySelector(".profile");
+    profile.textContent = userName.value;
   });
 
   return startexams;

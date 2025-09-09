@@ -39,11 +39,22 @@ export function QuestionFunctionality() {
       ],
     };
 
+    // copied options
     const copied = newQuestion.option.map((opt, i) => {
       return newQuestion.option.indexOf(opt) !== i;
     });
     if (copied.includes(true)) {
       alert("Duplicate options. Please enter unique options.");
+      return;
+    }
+
+    //answer should match from options
+
+    const answeronoption = newQuestion.option.find(
+      (u) => u.value !== answerInput.value
+    );
+    if (!newQuestion.option.includes(answerInput.value)) {
+      alert("Answer should be match from options");
       return;
     }
 
@@ -55,8 +66,6 @@ export function QuestionFunctionality() {
     added.innerText = ` ✔️ Question no. ${
       newQuestion.id + 1
     } Added Successfully!`;
-
-    FormQuestionNo.innerText = `Question No. ${newQuestion.id + 2}`;
 
     //clear all values after saving
     document.getElementById("questionInput").value = "";
