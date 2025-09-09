@@ -48,11 +48,9 @@ export function timer() {
       ispaused = !ispaused;
 
       if (ispaused) {
-        toggleIcon.classList.remove("fa-pause-circle");
-        toggleIcon.classList.add("fa-play-circle");
+        toggleIcon.classList.replace("fa-pause-circle", "fa-play-circle");
       } else {
-        toggleIcon.classList.remove("fa-play-circle");
-        toggleIcon.classList.add("fa-pause-circle");
+        toggleIcon.classList.replace("fa-play-circle", "fa-pause-circle");
       }
     });
   }

@@ -50,9 +50,9 @@ export function QuestionFunctionality() {
 
     //answer should match from options
 
-    const answeronoption = newQuestion.option.find(
-      (u) => u.value !== answerInput.value
-    );
+    // const answeronoption = newQuestion.option.find(
+    //   (u) => u.value !== answerInput.value
+    // );
     if (!newQuestion.option.includes(answerInput.value)) {
       alert("Answer should be match from options");
       return;
