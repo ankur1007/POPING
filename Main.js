@@ -6,8 +6,8 @@ import { mainOptions } from "./components/mainoption.js";
 // import { navigationbutton } from "./components/Navigation.js";
 import { create_signin } from "./components/Sign_in.js";
 import { QuestionFunctionality } from "./components/AdminQuestion.js";
-import { startexam } from "./components/Instruction.js";
 import { newuser } from "./components/newUser.js";
+import { apiQuestions } from "./components/apiQuestions.js";
 
 const tookoption = document.querySelectorAll("input[type=radio]");
 const newpage = document.getElementById("next");
@@ -56,3 +56,4 @@ QuestionFunctionality();
 newuser();
 
 // startexam();
+apiQuestions();

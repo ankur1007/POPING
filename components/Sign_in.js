@@ -8,6 +8,15 @@ export function create_signin() {
   const Admin = document.getElementById("admin");
   const createnewaccount = document.getElementById("signupBtn");
 
+  // async function Questions() {
+  //   const dummyQuestion = await fetch(
+  //     "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
+  //   );
+  //   const data = await dummyQuestion.json();
+  //   console.log(data);
+  // }
+  // Questions();
+
   Admin.addEventListener("click", (e) => {
     e.preventDefault();
     if (userName.value === "ankur" && password.value === "123") {

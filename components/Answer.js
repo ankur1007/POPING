@@ -1,9 +1,17 @@
 import { questionsData } from "./Data.js";
 import { getteranswer } from "./Footer.js";
+import { getApiQuestion } from "./apiQuestions.js";
 const closeResult = document.getElementById("closeResult");
 
 export function getQuestions() {
-  return JSON.parse(sessionStorage.getItem("questions")) || questionsData;
+  const apiQuestion = getApiQuestion();
+
+  if (apiQuestion.length > 0) {
+    return apiQuestion;
+  } else questionsData && questionsData.length > 0;
+  {
+    return questionsData;
+  }
 }
 
 export function answer() {
