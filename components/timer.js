@@ -1,6 +1,8 @@
+import { disableLeaveWarning } from "./Instruction.js";
+let interval = null;
+let ispaused = false;
 export function timer() {
   let time = 3 * 60 * 60; // 3 hours
-  let ispaused = false;
 
   // load from sessionStorage if available
   if (sessionStorage.getItem("timeLeft")) {
@@ -27,13 +29,14 @@ export function timer() {
     // show immediately once
     let timeLeft = parseInt(sessionStorage.getItem("timeLeft"), 10);
 
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
       if (!ispaused) {
         if (timeLeft <= 0) {
           clearInterval(interval);
           // sessionStorage.removeItem("timeLeft");
           // displaytimer.textContent = "00:00:00";
           alert("Time's up!");
+          disableLeaveWarning();
         } else {
           timeLeft--;
           sessionStorage.setItem("timeLeft", timeLeft);
@@ -57,3 +60,14 @@ export function timer() {
 
   return { updatetimer };
 }
+
+export function stopTimer() {
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
+    sessionStorage.removeItem("timeLeft");
+  }
+}
+// export function pausedTimer() {
+//   return (ispaused = true);
+// }

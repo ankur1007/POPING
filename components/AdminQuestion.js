@@ -10,14 +10,13 @@ export function QuestionFunctionality() {
   const option4 = document.getElementById("option4");
   const answerInput = document.getElementById("answerInput");
   const questionInput = document.getElementById("questionInput").value;
-  
+
   cancel.addEventListener("click", () => {
     const questions = getQuestions();
-    if(questions.length > 0) {
+    if (questions.length > 0) {
       document.getElementById("adminQuestions").classList.add("hidden");
       mainOptions(0);
-    }
-    else {
+    } else {
       alert("No questions available. Please add questions.");
     }
   });
@@ -57,11 +56,6 @@ export function QuestionFunctionality() {
       return;
     }
 
-    //answer should match from options
-
-    // const answeronoption = newQuestion.option.find(
-    //   (u) => u.value !== answerInput.value
-    // );
     if (!newQuestion.option.includes(answerInput.value)) {
       alert("Answer should be match from options");
       return;
@@ -75,6 +69,10 @@ export function QuestionFunctionality() {
     added.innerText = ` ✔️ Question no. ${
       newQuestion.id + 1
     } Added Successfully!`;
+
+    document.getElementById("FormQuestionNo").innerText = ` Question No. ${
+      newQuestion.id + 2
+    } `;
 
     //clear all values after saving
     document.getElementById("questionInput").value = "";

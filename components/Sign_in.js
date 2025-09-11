@@ -1,5 +1,5 @@
-import { userAnswer } from "./Footer.js";
-import { readyForExam } from "./Instruction.js";
+import { readyForExam, user } from "./Instruction.js";
+import { pausedTimer, stopTimer } from "./timer.js";
 export function create_signin() {
   const userName = document.getElementById("username");
   const password = document.getElementById("password");
@@ -7,15 +7,26 @@ export function create_signin() {
   const login = document.getElementById("loginBtn");
   const Admin = document.getElementById("admin");
   const createnewaccount = document.getElementById("signupBtn");
+  const HeaderSignup = document.getElementById("HeaderSignup");
 
-  // async function Questions() {
-  //   const dummyQuestion = await fetch(
-  //     "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-  //   );
-  //   const data = await dummyQuestion.json();
-  //   console.log(data);
-  // }
-  // Questions();
+  HeaderSignup.addEventListener("click", () => {
+    const loggedin = sessionStorage.getItem("loggedin") === "true";
+    if (loggedin) {
+      const confirmleave = confirm("do you want to quit?");
+      if (!confirmleave) {
+        (e) => {
+          e.preventDefault();
+        };
+        return;
+      } else {
+        document.getElementById("authModal").classList.remove("hidden");
+        // pausedTimer();
+      }
+    } else {
+      document.getElementById("authModal").classList.remove("hidden");
+      stopTimer();
+    }
+  });
 
   Admin.addEventListener("click", (e) => {
     e.preventDefault();
@@ -37,22 +48,28 @@ export function create_signin() {
     document.getElementById("authModal").classList.add("hidden");
   };
 
-  // document.getElementById("admin").onclick = function () {
-  //   document.getElementById("adminQuestions").classList.remove("hidden");
-  //   document.getElementById("authModal").classList.add("hidden");
-  // };
-  // debugger;
   login.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const newuser = JSON.parse(localStorage.getItem("user"));
+    const newuser = JSON.parse(localStorage.getItem("user")) || [];
     const findUser = newuser.find(
       (u) =>
         (userName.value == u.userName || userName.value == u.email) &&
         password.value == u.password
     );
     if (findUser) {
-      readyForExam();
+      const loggedin = sessionStorage.getItem("loggedin") === "true";
+      if (!loggedin) {
+        readyForExam();
+      } else {
+        document.getElementById("authModal").classList.add("hidden");
+        document.getElementById("customAlert").classList.add("hidden");
+        document.getElementById("adminQuestions").classList.add("hidden");
+        document.getElementById("InstructionPage").classList.add("hidden");
+        document.getElementById("readyForExam").classList.add("hidden");
+        document.getElementById("startexam").classList.add("hidden");
+        user();
+      }
     } else {
       alert("invalid user credentials");
     }

@@ -48,9 +48,7 @@ export function allevents({
     const qidNext = questions[newIdx].id;
     // debugger;
 
-    // [...tookoption].forEach((button) => {
-    //   button.checked = userAnswer[qidNext] === button.value;
-    // });
+ 
 
     console.log(userAnswer); //answer array
 

@@ -1,6 +1,8 @@
 import { questionsData } from "./Data.js";
 import { getteranswer } from "./Footer.js";
+import { disableLeaveWarning } from "./Instruction.js";
 import { getApiQuestion } from "./apiQuestions.js";
+import { stopTimer } from "./timer.js";
 const closeResult = document.getElementById("closeResult");
 
 export function getQuestions() {
@@ -25,6 +27,7 @@ export function answer() {
 
   yesBtn.addEventListener("click", () => {
     const resultDisplay = document.getElementById("resultdisplay");
+    disableLeaveWarning();
     let score = 0;
     const answer = getteranswer();
     console.log(answer);
@@ -48,11 +51,14 @@ export function answer() {
     document.getElementById(
       "score"
     ).innerText = `Your Score is ${score} out of ${questions.length}`;
-
-    closeResult.onclick = function () {
-      document.getElementById("resultdisplay").classList.add("hidden");
-    };
   });
+  closeResult.onclick = function () {
+    document.getElementById("resultdisplay").classList.add("hidden");
+    document.getElementById("authModal").classList.remove("hidden");
+    sessionStorage.removeItem("timeLeft");
+    sessionStorage.removeItem("loggedin");
+    stopTimer();
+  };
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -68,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   yesBtn.addEventListener("click", () => {
     console.log("User clicked Yes");
     alertBox.style.display = "none";
+    disableLeaveWarning();
   });
 
   noBtn.addEventListener("click", () => {

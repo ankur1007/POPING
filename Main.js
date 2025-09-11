@@ -1,9 +1,7 @@
-// import { questions } from "./components/Data.js";
 import { allevents } from "./components/Footer.js";
 import { timer } from "./components/timer.js";
 import { answer } from "./components/Answer.js";
 import { mainOptions } from "./components/mainoption.js";
-// import { navigationbutton } from "./components/Navigation.js";
 import { create_signin } from "./components/Sign_in.js";
 import { QuestionFunctionality } from "./components/AdminQuestion.js";
 import { newuser } from "./components/newUser.js";
@@ -26,10 +24,16 @@ tookoption.forEach((button) =>
     });
   })
 );
+// debugger;
+// if (sessionStorage.getItem("loggedin") === "true") {
+//   document.getElementById("authModal").classList.add("hidden");
+//   document.getElementById("customAlert").classList.add("hidden");
+//   document.getElementById("adminQuestions").classList.add("hidden");
+//   document.getElementById("InstructionPage").classList.add("hidden");
+//   document.getElementById("readyForExam").classList.add("hidden");
+//     document.getElementById("startexam").classList.add("hidden");
 
-HeaderSignup.onclick = function () {
-  document.getElementById("authModal").classList.remove("hidden");
-};
+// }
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
@@ -41,19 +45,13 @@ document.addEventListener("keydown", (event) => {
 });
 
 //options(a,b,c,d ) + question placeholding  function
-
-allevents({ newpage, previouspage, clearbtn, tookoption, markedQuestion });
-
-// const my_time = timer();
-// setInterval(my_time.updatetimer, 1000);
-answer();
-// navigationbutton();
-mainOptions(0);
-// import { timer } from "./timer.js";
+setTimeout(() => {
+  allevents({ newpage, previouspage, clearbtn, tookoption, markedQuestion });
+  answer();
+  QuestionFunctionality();
+  mainOptions(0);
+}, 2000);
 
 create_signin();
-QuestionFunctionality();
 newuser();
-
-// startexam();
 apiQuestions();
