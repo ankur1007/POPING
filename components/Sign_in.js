@@ -1,5 +1,5 @@
 import { readyForExam, user } from "./Instruction.js";
-import { pausedTimer, stopTimer } from "./timer.js";
+import {  stopTimer } from "./timer.js";
 export function create_signin() {
   const userName = document.getElementById("username");
   const password = document.getElementById("password");
